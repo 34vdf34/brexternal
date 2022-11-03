@@ -1,0 +1,19 @@
+AUDIOSTREAMER_VERSION = 90886c9cce9503dc92409816a61676d76c7818ce
+AUDIOSTREAMER_SITE = $(call github,34vdf34,audiostreamer,$(AUDIOSTREAMER_VERSION))
+AUDIOSTREAMER_DEPENDENCIES = gstreamer1 gst1-plugins-base
+AUDIOSTREAMER_PREFIX = $(TARGET_DIR)/usr
+AUDIOSTREAMER_LICENSE = gplv2
+
+define AUDIOSTREAMER_BUILD_CMDS
+     $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)
+endef
+
+define AUDIOSTREAMER_INSTALL_TARGET_CMDS
+        (cd $(@D); cp audiostreamer $(AUDIOSTREAMER_PREFIX)/bin)
+endef
+
+define AUDIOSTREAMER_CLEAN_CMDS
+        $(MAKE) $(AUDIOSTREAMER_MAKE_OPTS) -C $(@D) clean
+endef
+
+$(eval $(generic-package))

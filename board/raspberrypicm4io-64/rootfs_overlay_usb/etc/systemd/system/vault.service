@@ -1,0 +1,16 @@
+[Unit]
+Description=vault
+After=multi-user.target vault-pin.service
+Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service telemetryclient.service telemetryserver.service ui.service
+
+[Service]
+WorkingDirectory=/tmp
+Type=oneshot
+ExecStartPre=mkdir /tmp/vault
+#ExecStartPre=sh -c 'echo a883dafc480d466ee04e0d6da986bd78eb1fdd2178d04693723da3a8f95d42f4 > /tmp/vaultkey'
+#ExecStart=/sbin/cryptsetup luksOpen /mnt/vault_0 volume1 -q --key-file /tmp/vaultkey
+#ExecStartPost=mount /dev/mapper/volume1 /tmp/vault
+ExecStart=mount /dev/mapper/volume1 /tmp/vault
+
+[Install]
+WantedBy=multi-user.target
