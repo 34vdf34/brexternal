@@ -1,0 +1,13 @@
+[Unit]
+Description=Glorytun bind
+After=vault.service
+Wants=glorytun-ip.service glorytun-path.service glorytun-link.service
+
+[Service]
+Type=simple
+EnvironmentFile=/opt/tunnel/glorytun.env
+WorkingDirectory=/opt/tunnel
+ExecStart=glorytun bind 0.0.0.0 to ${SERVER_IP} ${TUN_PORT} ${TUN_CIPHER} keyfile ${TUN_KEYFILE} 
+CapabilityBoundingSet=CAP_NET_ADMIN
+
+
