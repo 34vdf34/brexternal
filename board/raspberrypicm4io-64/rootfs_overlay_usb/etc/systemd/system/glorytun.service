@@ -7,7 +7,7 @@ Wants=glorytun-ip.service glorytun-path.service glorytun-link.service
 Type=simple
 EnvironmentFile=/opt/tunnel/glorytun.env
 WorkingDirectory=/opt/tunnel
-ExecStart=glorytun bind 0.0.0.0 ${LOCAL_BIND_PORT} to ${SERVER_IP} ${TUN_PORT} ${TUN_CIPHER} keyfile ${TUN_KEYFILE} 
+ExecStart=glorytun bind 0.0.0.0 ${LOCAL_BIND_PORT} to ${SERVER_IP} ${TUN_PORT} ${TUN_CIPHER} keyfile ${TUN_KEYFILE} dev ${TUN_INTERFACE}
 CapabilityBoundingSet=CAP_NET_ADMIN
 
 

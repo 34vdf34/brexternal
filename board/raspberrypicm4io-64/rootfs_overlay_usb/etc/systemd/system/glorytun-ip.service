@@ -1,7 +1,7 @@
 [Unit]
 Description=Glorytun ip
-Requires=sys-devices-virtual-net-tun0.device
-After=glorytun.service sys-devices-virtual-net-tun0.device
+Requires=sys-devices-virtual-net-tun1.device
+After=glorytun.service sys-devices-virtual-net-tun1.device
 
 [Service]
 Type=simple

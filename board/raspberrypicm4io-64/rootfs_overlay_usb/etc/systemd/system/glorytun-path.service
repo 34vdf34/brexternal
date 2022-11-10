@@ -1,6 +1,6 @@
 [Unit]
 Description=Glorytun path
-After=glorytun-ip.service sys-devices-virtual-net-tun0.device
+After=glorytun-ip.service sys-devices-virtual-net-tun1.device
 
 [Service]
 Type=simple

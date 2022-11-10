@@ -1,6 +1,6 @@
 [Unit]
 Description=Glorytun link
-After=glorytun-path.service sys-devices-virtual-net-tun0.device
+After=glorytun-path.service sys-devices-virtual-net-tun1.device
 
 [Service]
 Type=simple
