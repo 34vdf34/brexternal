@@ -7,7 +7,8 @@ Environment="QT_QPA_EGLFS_ROTATION=-90"
 Environment="QT_QPA_FONTDIR=/usr/share/fonts/dejavu/"
 WorkingDirectory=/tmp
 KillMode=process
-ExecStartPre=rm /tmp/tx-key-presentage /tmp/rx-key-presentage
+ExecStartPre=/bin/sh -c 'if [ -e /tmp/rx-key-presentage ]; then rm /tmp/rx-key-presentage; fi'
+ExecStartPre=/bin/sh -c 'if [ -e /tmp/tx-key-presentage ]; then rm /tmp/tx-key-presentage; fi'
 ExecStartPre=mkfifo /tmp/tx-key-presentage /tmp/rx-key-presentage
 # ExecStartPre=/sbin/modprobe mipi_dsi
 ExecStart=/bin/qt-widget-thirdtake
