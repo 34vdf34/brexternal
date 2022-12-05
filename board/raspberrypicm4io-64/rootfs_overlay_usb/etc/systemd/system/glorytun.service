@@ -1,13 +1,14 @@
 [Unit]
-Description=Glorytun bind
-After=vault.service
-Wants=glorytun-ip.service glorytun-path.service glorytun-link.service
+Description=Glorytun bind #1
+After=multi-user.target vault.service
+Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service telemetryclient.service telemetryserver.service
+Wants=glorytun-ip.service glorytun-path.service glorytun-link.service glorytun-route.service
 
 [Service]
 Type=simple
 EnvironmentFile=/opt/tunnel/glorytun.env
 WorkingDirectory=/opt/tunnel
-ExecStart=glorytun bind 0.0.0.0 ${LOCAL_BIND_PORT} to ${SERVER_IP} ${TUN_PORT} ${TUN_CIPHER} keyfile ${TUN_KEYFILE} dev ${TUN_INTERFACE}
+ExecStart=/bin/glorytun bind 0.0.0.0 ${LOCAL_BIND_PORT} to ${SERVER_IP} ${TUN_PORT} ${TUN_CIPHER} keyfile ${TUN_KEYFILE} dev ${TUN_INTERFACE}
 CapabilityBoundingSet=CAP_NET_ADMIN
 
 
