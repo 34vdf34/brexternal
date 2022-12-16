@@ -1,7 +1,7 @@
 [Unit]
 Description=Glorytun bind #1
 After=multi-user.target vault.service
-Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service telemetryclient.service telemetryserver.service
+Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service peer6.service peer7.service peer8.service peer9.service telemetryclient.service telemetryserver.service
 Wants=glorytun-ip.service glorytun-path.service glorytun-link.service glorytun-route.service
 
 [Service]

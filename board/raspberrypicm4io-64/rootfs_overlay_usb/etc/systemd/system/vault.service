@@ -1,7 +1,7 @@
 [Unit]
 Description=vault
 After=multi-user.target vault-pin.service
-Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service telemetryclient.service telemetryserver.service ui.service
+Before=dpinger.service peer0.service peer0.service peer1.service peer2.service peer3.service peer4.service peer5.service peer6.service peer7.service peer8.service peer9.service telemetryclient.service telemetryserver.service ui.service
 
 [Service]
 WorkingDirectory=/tmp
